@@ -21,6 +21,15 @@ app.get('/api/get-products', (req, res) => {
     })
 })
 
+app.post('/api/add-product', (req, res) => {
+    var {id, label, desctiption} = req.body;
+    productService.addProduct(id, label, desctiption).then((log) => {
+        res.send("Added successfully")
+    }, (log) => {
+        res.send("some issue in adding")
+    })
+})
+
 app.listen(port, () => {
     console.log("Listening")
 })

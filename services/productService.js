@@ -7,7 +7,7 @@ module.exports = {
             con.query("SELECT * FROM Product", function (err, result) {
                 if (err) reject(err);
                 resolve(result);
-              });
+            });
         })
     },
     createConnection: () => {
@@ -19,12 +19,20 @@ module.exports = {
             database: 'knBlMynuHC'
         });
         return new Promise((resolve, reject) => {
-            con.connect(function(err) {
+            con.connect(function (err) {
                 if (err) reject("Some error in connection");
                 resolve("Connected!");
             });
         })
-        
+
+    },
+    addProduct: (id, label, description) => {
+        return new Promise((resolve, reject) => {
+            con.query(`INSERT INTO PRODUCT VALUES (${id}, ${label}, ${description})`, function (err, result) {
+                if (err) reject(err);
+                resolve(result);
+            });
+        })
     }
 
 }
