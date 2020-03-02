@@ -28,9 +28,10 @@ module.exports = {
     },
     addProduct: (id, label, description) => {
         return new Promise((resolve, reject) => {
-            con.query(`INSERT INTO PRODUCT VALUES (${id}, ${label}, ${description})`, function (err, result) {
+            con.query(`INSERT INTO Product VALUES ("${id}", "${label}", "${description}")`, function (err, result) {
+                con.end()
                 if (err) reject(err);
-                resolve(result);
+                resolve("Successfully added");
             });
         })
     }
