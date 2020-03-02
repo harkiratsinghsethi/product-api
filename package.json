@@ -1,0 +1,19 @@
+{
+  "name": "pickle",
+  "version": "1.0.0",
+  "description": "Get screenshot of websites with sitemap",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karanpreet Singh",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^3.1.1",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.2",
+    "puppeteer": "^2.0.0",
+    "sitemap-stream-parser": "^1.7.0"
+  }
+}
