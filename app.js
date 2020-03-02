@@ -1,6 +1,11 @@
 const express = require('express')
 var app = express()
-app.all('*', function(req, res, next) {
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+app.all('*', function (req, res, next) {
     var origin = req.get('origin');
     res.header('Access-Control-Allow-Origin', origin);
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -17,9 +22,9 @@ app.get('/api/get-products', (req, res) => {
         console.log(log)
         res.send("Error")
     })
-    .then((result) => {
-        res.send(result)
-    })
+        .then((result) => {
+            res.send(result)
+        })
 })
 
 app.post('/api/add-product', (req, res) => {
