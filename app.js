@@ -1,7 +1,7 @@
 const express = require('express')
 var app = express()
 var productService = require('./services/productService')
-
+var port = process.env.PORT || 8080;
 app.get('/api/get-products', (req, res) => {
     productService.createConnection().then((log) => {
         return productService.getAllProducts()
@@ -14,6 +14,6 @@ app.get('/api/get-products', (req, res) => {
     })
 })
 
-app.listen(4000, () => {
+app.listen(port, () => {
     console.log("Listening")
 })
